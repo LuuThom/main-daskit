@@ -11,18 +11,18 @@
     }
     
     .form-control {
-      padding-left: 6px;
-      border-left: none;
-      border-top-right-radius: 6px;
-      border-bottom-right-radius: 6px;
+      padding-left: 41px;
+      border-radius: 6px;
+      border-left: 1px solid #ced4da;
       outline: none;
       &.search:focus {
         outline: none;
-        border-left: 0;
         box-shadow: none;
         & .input-group-text {
           border-color: $bg-scrol;
           border-right: 0;  
+          position: relative;
+          z-index: 10;
         }
       }
     }
@@ -33,13 +33,17 @@
     .input-group-prepend {
       order: -1;
       outline: none;
+      margin-right: -38px;
       .input-group-text {
         background: none;
         border-top-left-radius: 6px;
         border-bottom-left-radius: 6px;
         border-color: $bg-input;
         border-right: none;
+        position: relative;
         cursor: pointer;
+        z-index: 10;
+        border: 0;
       }
     }
     .media {
