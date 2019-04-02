@@ -1,0 +1,296 @@
+-
+  var navbar = [
+    {
+      item : "dashboard",
+      icon : "fe fe-home",
+      link : "dashboards",
+      show : true,
+      sub : [
+        {
+          list : "default",
+        },
+        {
+          list : "alternative",
+          badge : "new",
+        },
+      ]
+    },
+    {
+      item : "pages",
+      icon : "fe fe-file",
+      link : "pages",
+      sub : [
+        {
+          list : "profile",
+          link : "sidebarProfile",
+          child : [
+            {
+              list : "post",
+            },
+            {
+              list : "groups",
+            },
+            {
+              list : "project",
+            },
+            {
+              list : "files",
+            },
+            {
+              list : "subscribers",
+            },
+          ]
+        },
+        {
+          list : "project",
+          link : "sidebarProject",
+          child : [
+            {
+              list : "overview",
+            },
+            {
+              list : "files",
+            },
+            {
+              list : "reports",
+            },
+            {
+              list : "new project",
+            },
+          ]
+        },
+        {
+          list : "team",
+          link : "sidebarteam",
+          child : [
+            {
+              list : "overview",
+            },
+            {
+              list : "project",
+            },
+            {
+              list : "members",
+            },
+            {
+              list : "new team",
+            },
+          ]
+        },
+        {
+          list : "orders",
+        },
+        {
+          list : "feed",
+        },
+        {
+          list : "settings",
+        },
+        {
+          list : "invoice",
+        },
+        {
+          list : "pricing",
+        },
+      ]
+    },
+    {
+      item : "authentication",
+      icon : "fe fe-user",
+      link : "authentication",
+      sub : [
+        {
+          list : "sign in",
+        },
+        {
+          list : "sign up",
+        },
+        {
+          list : "password reset",
+        },
+        {
+          list : "error",
+        },
+      ]
+    },
+  ]
+-
+mixin navbar-nav()
+  ul.navbar-nav
+    each val in navbar
+      li.nav-item
+        a.nav-link(class= val.sub ? "nav-link-sub": "", href= "#" + val.link,
+          data-toggle="collapse" 
+          role="button" 
+          aria-expanded="true" 
+          aria-controls= val.link)
+          i(class= val.icon)
+          |#{val.item}
+        if val.sub
+          .collapse(
+            id= val.link
+            class= val.show ? "show" : ""
+          )
+            ul.nav
+              each val1 in val.sub
+                li.nav-item
+                  a.nav-link(class= val1.child ? "nav-link-sub": "",href="#" + val1.link,
+                    data-toggle="collapse" 
+                    role="button" 
+                    aria-expanded="true" 
+                    aria-controls= val1.link)= val1.list
+                    if val1.badge
+                      span.badge= val1.badge
+                  if val1.child
+                    .collapse(id= val1.link)
+                      ul.nav.nav-child
+                        each val2 in val1.child
+                          li.nav-item
+                            a.nav-link(href="#")= val2.list
+
+-
+  var document = [
+    {
+      item : "gettting stared",
+      icon : "fe fe-clipboard",
+    },
+    {
+      item : "component",
+      icon : "fe fe-book-open",
+      link : "sidebarComponents",
+      sub : [
+        {
+          list : "alerts",
+        },
+        {
+          list : "avatars",
+        },
+        {
+          list : "badges",
+        },
+        {
+          list : "breadcrumb",
+        },
+        {
+          list : "buttons",
+        },
+        {
+          list : "button group",
+        },
+        {
+          list : "cards",
+        },
+        {
+          list : "charts",
+        },
+        {
+          list : "dropdowns",
+        },
+        {
+          list : "forms",
+        },
+        {
+          list : "icons",
+        },
+        {
+          list : "lists",
+        },
+        {
+          list : "modal",
+        },
+        {
+          list : "navs",
+        },
+        {
+          list : "navbar",
+        },
+        {
+          list : "page headers",
+        },
+        {
+          list : "pagination",
+        },
+        {
+          list : "popovers",
+        },
+        {
+          list : "social post",
+        },
+        {
+          list : "spinners",
+        },
+        {
+          list : "tables",
+        },
+        {
+          list : "toasts",
+        },
+        {
+          list : "tooltips",
+        },
+        {
+          list : "typography",
+        },
+        {
+          list : "utilities",
+        },
+      ]
+    },
+    {
+      item : "changelog",
+      icon : "fe fe-git-branch",
+      badge : "v1.3.4",
+    },
+  ]
+mixin document()
+  ul.navbar-nav
+    each val in document
+      li.nav-item
+        a.nav-link(class= val.sub ? "nav-link-sub": "" href="#" + val.link data-toggle="collapse" role="button" aria-expanded="true" aria-controls= val.link)
+          i(class= val.icon)
+          |#{val.item}
+          if val.badge
+            span.badge.version= val.badge
+        if val.sub
+          .collapse(id= val.link)
+            ul.nav
+              each val1 in val.sub
+                li.nav-item
+                  a.nav-link(class= val.badge ? "active": "", href="#")= val1.list
+          
+
+nav.navbar.navbar-vertical.navbar-expand-md#sidebar
+    .container-fluid
+      button.navbar-toggle(data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggle-icon
+      a.navbar-brand(href="index.html")
+        img.navbar-brand-img(src="assets/img/logo.svg", alt="")
+      .collapse.navbar-collapse#sidebarCollapse
+        +navbar-nav()
+        h6.navbar-heading documentation
+        +document()
+        a.btn.btn-block.btn-primary.mt-auto(href="#modalDemo" data-toggle="modal")
+          i.fe.fe-sliders.mr-2
+          | customer
+        .navbar-user#sidebarUser
+          div
+            a.navbar-user-link(href="#sidebarModal" data-toggle="modal")
+              span.icon
+                i.fe.fe-bell
+          .dropup.show
+            a#sidebarIcon.drodown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
+              .avatar.avatar-online
+                img.avatar-img.rounded-circle(src="assets/img/avatar-1.jpg")
+                span.status.status--online.
+            ul.dropdown-menu(aria-labelledby="sidebarIcon")
+              li
+                a.dropdown-item(href="#") profile
+              li
+                a.dropdown-item(href="#") settings
+              hr
+              li
+                a.dropdown-item(href="#") logout
+          div  
+            a.navbar-user-link(href="#sidebarModalSearch" data-toggle="modal")
+              span.icon
+                i.fe.fe-search

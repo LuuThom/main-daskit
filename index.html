@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/vendor/Chart.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="assets/css/main.min.css">
+  </head>
+  <body>
+    <div class="content">
+      <div class="modal fade" id="modalDemo" role="dialog">
+        <div class="modal-dialog">
+          <form class="modal-content">
+            <div class="modal-body"><a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></a>
+              <div class="text-center"><img class="img-fluid" src="assets/img/designer-life.svg">
+                <h2 class="title mb-2">make dashkit your own</h2>
+                <p class="content mb-4">Set preferences that will be cookied for your live preview demonstration.</p>
+              </div>
+              <h4 class="intro mb-1">color scheme</h4>
+              <p class="text mb-3">Overall light or dark presentation.</p>
+              <div class="btn-group-toggle d-flex mb-4" data-toggle="buttons">
+                <label class="btn btn-white active">
+                  <input id="option1" type="radio" name="options" autocomplete="off" checked><i class="fe fe-sum mr-2"></i>light mode
+                </label>
+                <label class="btn btn-white ml-2">
+                  <input id="option2" type="radio" name="options" autocomplete="off"><i class="fe fe-moon mr-2"></i>dark mode
+                </label>
+              </div>
+              <h4 class="intro mb-1">Navigation Position</h4>
+              <p class="text mb-3">Select the primary navigation paradigm for your app.</p>
+              <div class="btn-group-toggle d-flex mb-4" data-toggle="buttons">
+                <label class="btn btn-white active">
+                  <input id="option3" type="radio" name="options" autocomplete="off" checked>sidenav
+                </label>
+                <label class="btn btn-white ml-2">
+                  <input id="option4" type="radio" name="options" autocomplete="off">topnav
+                </label>
+                <label class="btn btn-white ml-2">
+                  <input id="option5" type="radio" name="options" autocomplete="off">combo
+                </label>
+              </div>
+              <h4 class="intro mb-1">sidebar color</h4>
+              <p class="text mb-3">Usually dictated by the color scheme, but can be overriden.</p>
+              <div class="btn-group-toggle d-flex mb-4" data-toggle="buttons">
+                <label class="w-50 btn btn-white active">
+                  <input id="option6" type="radio" name="options" autocomplete="off" checked>default
+                </label>
+                <label class="w-50 btn btn-white ml-2">
+                  <input id="option7" type="radio" name="options" autocomplete="off">vibrant
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <button class="btn btn-block btn-primary mt-auto" type="submit">Preview</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal fade modalSearch" id="sidebarModalSearch" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body" data-toggle="lists">
+              <form class="mt-4 mb-3" action="#">
+                <div class="input-group input-group-merge">
+                  <input class="form-control form-control-prepended search" type="search" placeholder="Search">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><span class="fe fe-search"></span></div>
+                  </div>
+                </div>
+              </form>
+              <div class="media"><a href="#"><img class="avatar-img rounded" src="assets/img/team-logo-1.jpg" alt="">
+                  <div class="media-body">
+                    <h4 class="text-body name mb-1">Airbnb</h4>
+                    <p class="text mb-0"><span class="icon"><i class="fe fe-clock"></i></span><span class="date-time">Updated 2hr ago.</span></p>
+                  </div></a></div>
+              <div class="media"><a href="#"><img class="avatar-img rounded" src="assets/img/team-logo-2.jpg" alt="">
+                  <div class="media-body">
+                    <h4 class="text-body name mb-1">MEdium Corporation</h4>
+                    <p class="text mb-0"><span class="icon"><i class="fe fe-clock"></i></span><span class="date-time">Updated 2hr ago</span></p>
+                  </div></a></div>
+              <div class="media"><a href="#"><img class="avatar-img avatar-img-pro rounded" src="assets/img/project-1.jpg" alt="">
+                  <div class="media-body">
+                    <h4 class="text-body name mb-1">Homepage Redesign</h4>
+                    <p class="text mb-0"><span class="icon"><i class="fe fe-clock"></i></span><span class="date-time">Updated 4hr ago</span></p>
+                  </div></a></div>
+              <div class="media"><a href="#"><img class="avatar-img avatar-img-pro rounded" src="assets/img/project-2.jpg" alt="">
+                  <div class="media-body">
+                    <h4 class="text-body name mb-1">Travel & Time</h4>
+                    <p class="text mb-0"><span class="icon"><i class="fe fe-clock"></i></span><span class="date-time">Updated 4hr ago</span></p>
+                  </div></a></div>
+              <div class="media"><a href="#"><img class="avatar-img avatar-img-pro rounded" src="assets/img/project-3.jpg" alt="">
+                  <div class="media-body">
+                    <h4 class="text-body name mb-1">Safari Exploration</h4>
+                    <p class="text mb-0"><span class="icon"><i class="fe fe-clock"></i></span><span class="date-time">Updated 4hr ago</span></p>
+                  </div></a></div>
+              <div class="media"><a href="#"><img class="avatar-img rounded-circle" src="assets/img/avatar-1.jpg" alt="">
+                  <div class="media-body">
+                    <h4 class="text-body name mb-1">Dianna Smiley</h4>
+                    <p class="text action mb-0 ml-3"><span class="text-success"></span>online<span class="status status--online"></span></p>
+                  </div></a></div>
+              <div class="media"><a href="#"><img class="avatar-img rounded-circle" src="assets/img/avatar-2.jpg" alt="">
+                  <div class="media-body">
+                    <h4 class="text-body name mb-1">Ad Hadley</h4>
+                    <p class="text action mb-0 ml-3"><span class="text-danger"></span>offline<span class="status status--offline"></span></p>
+                  </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="sidebarModal" role="dialog" aria-modal="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Notifications</h4>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+              <ul class="list-unstyled my-2">
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-1.jpg">
+                  <p class="text-body"><span class="name">Dianna Smiley</span> shared your post with <span class="name">Ab Hadlay</span>,<span class="name">Adolfo Hess</span>, and <span class="name">3 others.</span></p><span class="time">2m</span>
+                </li>
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-2.jpg">
+                  <p class="text-body"><span class="name">Ab Hadlay</span> reacted to your ost with a 😍</p><span class="time">2m</span>
+                </li>
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-3.jpg">
+                  <p class="text-body"><span class="name">Adolfo Hess</span> commented<span class="comment d-block">"I don't think this really makes sense to do widthout approval from Johnathan since he's the one..."</span></p><span class="time">2m</span>
+                </li>
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-4.jpg">
+                  <p class="text-body"><span class="name">Daniela Dewitt</span> subcribed to you.</p><span class="time">2m</span>
+                </li>
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-5.jpg">
+                  <p class="text-body"><span class="name">Miyah Myles</span> shared your post with <span class="name">Ryu Duke</span>,<span class="name">GlenRouse</span>, and <span class="name">3 others.</span></p><span class="time">2m</span>
+                </li>
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-6.jpg">
+                  <p class="text-body"><span class="name">Ryu Duke</span> reacted to your ost with a :))</p><span class="time">2m</span>
+                </li>
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-7.jpg">
+                  <p class="text-body"><span class="name">Glen Rouse</span> commented<span class="comment d-block">"I don't think this really makes sense to do widthout approval from Johnathan since he's the one..."</span></p><span class="time">2m</span>
+                </li>
+                <li class="media"><img class="avatar align-self-start rounded-circle mr-3" src="assets/img/avatar-8.jpg">
+                  <p class="text-body"><span class="name">Grace Gross</span> subcribed to you.</p><span class="time">2m</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-vertical navbar-expand-md" id="sidebar">
+        <div class="container-fluid">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggle-icon"></span></button><a class="navbar-brand" href="index.html"><img class="navbar-brand-img" src="assets/img/logo.svg" alt=""></a>
+          <div class="collapse navbar-collapse" id="sidebarCollapse">
+                  <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link nav-link-sub" href="#dashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="dashboards"><i class="fe fe-home"></i>dashboard</a>
+                      <div class="collapse show" id="dashboards">
+                        <ul class="nav">
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">default</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">alternative<span class="badge">new</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link nav-link-sub" href="#pages" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="pages"><i class="fe fe-file"></i>pages</a>
+                      <div class="collapse" id="pages">
+                        <ul class="nav">
+                          <li class="nav-item"><a class="nav-link nav-link-sub" href="#sidebarProfile" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarProfile">profile</a>
+                            <div class="collapse" id="sidebarProfile">
+                              <ul class="nav nav-child">
+                                <li class="nav-item"><a class="nav-link" href="#">post</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">groups</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">project</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">files</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">subscribers</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="nav-item"><a class="nav-link nav-link-sub" href="#sidebarProject" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarProject">project</a>
+                            <div class="collapse" id="sidebarProject">
+                              <ul class="nav nav-child">
+                                <li class="nav-item"><a class="nav-link" href="#">overview</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">files</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">reports</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">new project</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="nav-item"><a class="nav-link nav-link-sub" href="#sidebarteam" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarteam">team</a>
+                            <div class="collapse" id="sidebarteam">
+                              <ul class="nav nav-child">
+                                <li class="nav-item"><a class="nav-link" href="#">overview</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">project</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">members</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">new team</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">orders</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">feed</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">settings</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">invoice</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">pricing</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link nav-link-sub" href="#authentication" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="authentication"><i class="fe fe-user"></i>authentication</a>
+                      <div class="collapse" id="authentication">
+                        <ul class="nav">
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">sign in</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">sign up</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">password reset</a>
+                          </li>
+                          <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true">error</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+            <h6 class="navbar-heading">documentation</h6>
+                  <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true"><i class="fe fe-clipboard"></i>gettting stared</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link nav-link-sub" href="#sidebarComponents" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarComponents"><i class="fe fe-book-open"></i>component</a>
+                      <div class="collapse" id="sidebarComponents">
+                        <ul class="nav">
+                          <li class="nav-item"><a class="nav-link" href="#">alerts</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">avatars</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">badges</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">breadcrumb</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">buttons</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">button group</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">cards</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">charts</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">dropdowns</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">forms</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">icons</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">lists</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">modal</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">navs</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">navbar</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">page headers</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">pagination</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">popovers</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">social post</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">spinners</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">tables</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">toasts</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">tooltips</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">typography</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#">utilities</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="true"><i class="fe fe-git-branch"></i>changelog<span class="badge version">v1.3.4</span></a>
+                    </li>
+                  </ul><a class="btn btn-block btn-primary mt-auto" href="#modalDemo" data-toggle="modal"><i class="fe fe-sliders mr-2"></i>customer</a>
+            <div class="navbar-user" id="sidebarUser">
+              <div><a class="navbar-user-link" href="#sidebarModal" data-toggle="modal"><span class="icon"><i class="fe fe-bell"></i></span></a></div>
+              <div class="dropup show"><a class="drodown-toggle" id="sidebarIcon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <div class="avatar avatar-online"><img class="avatar-img rounded-circle" src="assets/img/avatar-1.jpg"><span class="status status--online"></span></div></a>
+                <ul class="dropdown-menu" aria-labelledby="sidebarIcon">
+                  <li><a class="dropdown-item" href="#">profile</a></li>
+                  <li><a class="dropdown-item" href="#">settings</a></li>
+                  <hr>
+                  <li><a class="dropdown-item" href="#">logout</a></li>
+                </ul>
+              </div>
+              <div> <a class="navbar-user-link" href="#sidebarModalSearch" data-toggle="modal"><span class="icon"><i class="fe fe-search"></i></span></a></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="main-body">
+        <div class="container-fluid">
+          <div class="header">
+            <div class="title-page">
+              <h6 class="header-pretitle">overview</h6>
+              <h1 class="header-title">dashboard</h1>
+            </div>
+            <div class="btn-create"><a class="btn btn-primary btn--custom" href="#!">Create Report</a></div>
+          </div>
+          <div class="body row">
+                  <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="intro">
+                          <h6 class="card-title">budget</h6><span class="count">$24,500</span><span class="badge">+3.5%</span>
+                        </div>
+                        <div class="icon"><i class="fe fe-dollar-sign"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="intro">
+                          <h6 class="card-title">total hours</h6><span class="count">763.5</span>
+                        </div>
+                        <div class="icon"><i class="fe fe-briefcase"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="intro">
+                          <h6 class="card-title">progress</h6>
+                          <div class="row">
+                            <div class="col-auto pr-1"><span class="count">84,5%</span></div>
+                            <div class="col pl-0">
+                              <div class="progress progress-sm">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="icon"><i class="fe fe-clipboard"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="intro">
+                          <h6 class="card-title">effective hourly</h6><span class="count">$85,50</span>
+                        </div>
+                        <div class="icon"><i class="fe fe-clock"></i></div>
+                      </div>
+                    </div>
+                  </div>
+            <div class="col-12 col-xl-8">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h4 class="card-header-title">Orders</h4>
+                    </div>
+                    <div class="col-auto mr-5"><span class="text">Show affiliate: </span></div>
+                    <div class="col-auto">
+                      <div class="checkbox switcher">
+                        <input class="custom-control-input" id="cardToggle" type="checkbox" value="">
+                        <label class="custom-control-label checkbox" for="cardToggle"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart">
+                    <canvas class="chart-canvas" id="ordersChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-4">
+              <div class="card devices">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col">
+                      <h4 class="card-header-title">Devices</h4>
+                    </div>
+                    <div class="col-auto">
+                      <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+                        <li class="nav-item" data-toggle="chart" data-target="#devicesChart"><a class="nav-link active" href="#" data-toggle="tab">All</a></li>
+                        <li class="nav-item" data-toggle="chart" data-target="#devicesChart"><a class="nav-link active" href="#" data-toggle="tab">Direct</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart chart-appended">
+                    <canvas class="chart-canvas chartjs-render-monitor" id="devicesChart" data-target="#devicesChartLegend"></canvas>
+                  </div>
+                  <div class="chart-legend" id="devicesChartLegend"><span class="chart-legend-item"><i class="chart-legend-indicator"></i>Desktop</span><span class="chart-legend-item"><i class="chart-legend-indicator"></i>Tablet</span><span class="chart-legend-item"><i class="chart-legend-indicator"></i>Mobile</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-4">
+              <div class="card project">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h4 class="card-header-title mb-0">Project</h4>
+                    </div>
+                    <div class="col-auto"><a class="small" href="#">View all</a></div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="row align-item-center">
+                    <div class="col-auto"><a class="avatar avatar-4by3" href="#"><img class="avatar-img rounded" src="assets/img/project-1.jpg" alt=""></a></div>
+                    <div class="col ml-n2">
+                      <h4 class="card-title mb-1"><a href="#">Homepage Redesign</a></h4>
+                      <p class="card-text"><span class="date-time">Updated 5hr ago</span></p>
+                    </div>
+                    <div class="col-auto">
+                      <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row align-item-center">
+                    <div class="col-auto"><a class="avatar avatar-4by3" href="#"><img class="avatar-img rounded" src="assets/img/project-2.jpg" alt=""></a></div>
+                    <div class="col ml-n2">
+                      <h4 class="card-title mb-1"><a href="#">Travels & Time</a></h4>
+                      <p class="card-text"><span class="date-time">Updated 3hr ago</span></p>
+                    </div>
+                    <div class="col-auto">
+                      <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row align-item-center">
+                    <div class="col-auto"><a class="avatar avatar-4by3" href="#"><img class="avatar-img rounded" src="assets/img/project-3.jpg" alt=""></a></div>
+                    <div class="col ml-n2">
+                      <h4 class="card-title mb-1"><a href="#">Safari Exploration</a></h4>
+                      <p class="card-text"><span class="date-time">Updated 10hr ago</span></p>
+                    </div>
+                    <div class="col-auto">
+                      <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row align-item-center">
+                    <div class="col-auto"><a class="avatar avatar-4by3" href="#"><img class="avatar-img rounded" src="assets/img/project-1.jpg" alt=""></a></div>
+                    <div class="col ml-n2">
+                      <h4 class="card-title mb-1"><a href="#">Personal Site</a></h4>
+                      <p class="card-text"><span class="date-time">Updated 4hr ago</span></p>
+                    </div>
+                    <div class="col-auto">
+                      <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-8">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h4 class="card-header-title">Performance</h4>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-sm btn-white">Export</a></div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart">
+                    <canvas class="chart-canvas" id="performance"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-7">
+              <div class="card">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h4 class="card-header-title mb-0">Goals</h4>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-sm btn-white">Export</a></div>
+                  </div>
+                </div>
+                <div class="table-responsive">
+                        <table class="table mb-0 display nowrap dataTable" id="example">
+                          <thead>  
+                            <tr>
+                              <th class="sorting"><a class="sort" data-sort="goal-project">goal1</a></th>
+                              <th class="sorting"><a class="sort" data-sort="goal-status">status1</a></th>
+                              <th class="sorting"><a class="sort" data-sort="goal-progress">progress1</a></th>
+                              <th class="sorting"><a class="sort" data-sort="goal-date">date1</a></th>
+                              <th class="sorting"><a class="sort" data-sort="text-right">team1</a></th>
+                              <th class="sorting"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="goal-project">Update the API</td>
+                              <td class="goal-status"><span class="status status--online"></span>In progress</td>
+                              <td class="goal-progress">55%</td>
+                              <td class="goal-date">07/24/18</td>
+                              <td class="text-right"><img><img><img>
+                              </td>
+                              <td class="text-right">
+                                <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="goal-project">Release v1.2-Beta</td>
+                              <td class="goal-status"><span class="status status--danger"></span>In progress</td>
+                              <td class="goal-progress">25%</td>
+                              <td class="goal-date">08/26/18</td>
+                              <td class="text-right"><img><img><img>
+                              </td>
+                              <td class="text-right">
+                                <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="goal-project">GDPR Compliance</td>
+                              <td class="goal-status"><span class="status status--warning"></span>Completed</td>
+                              <td class="goal-progress">100%</td>
+                              <td class="goal-date">06/19/18</td>
+                              <td class="text-right"><img><img><img>
+                              </td>
+                              <td class="text-right">
+                                <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="goal-project">v1.2 Documentation</td>
+                              <td class="goal-status"><span class="status status--danger"></span>Cancelled</td>
+                              <td class="goal-progress">0%</td>
+                              <td class="goal-date">06/25/18</td>
+                              <td class="text-right"><img><img>
+                              </td>
+                              <td class="text-right">
+                                <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="goal-project">Plan design offsite</td>
+                              <td class="goal-status"><span class="status status--warning"></span>Completed</td>
+                              <td class="goal-progress">100%</td>
+                              <td class="goal-date">06/03/18</td>
+                              <td class="text-right"><img><img><img><img>
+                              </td>
+                              <td class="text-right">
+                                <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#!">Action</a><a class="dropdown-item" href="#!">Another action</a><a class="dropdown-item" href="#!">Somthing else here</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-5">
+              <div class="card version">
+                <div class="card-body text-center">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-xl-10"><img class="img-fluid mt-n6 mb-4" src="assets/img/happiness.svg" alt="">
+                      <h4 class="title mb-2">We released 2008 new versions of our theme for glory.</h4>
+                      <p class="text">This is a true story and totally not made up. This is going to be better in the long run but for now this is the way it is.</p><a class="btn btn-primary" href="#!">Try it for free</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="assets/vendor/bootstrap.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      <script src="assets/vendor/Chart.min.js"></script>
+      <script src="assets/vendor/Chart.extension.min.js"></script>
+      <script src="assets/js/main.js"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+.navbar-expand-md .navbar-nav {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.navbar-expand-md .navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+ul.nav {
+  display: none;
+}
+
+a.nav-link {
+  text-transform: capitalize;
+}
+
+div#sidebarCollapse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 250px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  overflow-y: auto;
+  left: 0;
+  border-width: 0 1px 0 0;
+  overflow-x: hidden;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.navbar .container-fluid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.navbar .container-fluid button.navbar-toggle {
+  display: none;
+}
+
+.navbar .navbar-brand {
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-right: 0;
+}
+
+.navbar .navbar-brand .navbar-brand-img {
+  max-height: 48px;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-toggler {
+    display: none;
+  }
+}
+/*# sourceMappingURL=sidebar.min.css.map */

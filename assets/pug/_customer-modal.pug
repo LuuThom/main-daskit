@@ -1,0 +1,45 @@
+.modal.fade#modalDemo(role="dialog")
+  .modal-dialog
+    form.modal-content
+      .modal-body
+        a.close(data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") x
+        .text-center
+          img.img-fluid(src="assets/img/designer-life.svg")
+          h2.title.mb-2 make dashkit your own
+          p.content.mb-4 Set preferences that will be cookied for your live preview demonstration.
+        h4.intro.mb-1 color scheme
+        p.text.mb-3 Overall light or dark presentation.
+        .btn-group-toggle.d-flex.mb-4(data-toggle="buttons")
+          label.btn.btn-white.active
+            input#option1(type="radio" name="options" autocomplete="off" checked)
+            i.fe.fe-sum.mr-2
+            | light mode
+          label.btn.btn-white.ml-2
+            input#option2(type="radio" name="options" autocomplete="off")
+            i.fe.fe-moon.mr-2
+            | dark mode
+        h4.intro.mb-1 Navigation Position
+        p.text.mb-3 Select the primary navigation paradigm for your app.
+        .btn-group-toggle.d-flex.mb-4(data-toggle="buttons")
+          label.btn.btn-white.active
+            input#option3(type="radio" name="options" autocomplete="off" checked)
+            | sidenav
+          label.btn.btn-white.ml-2
+            input#option4(type="radio" name="options" autocomplete="off")
+            | topnav
+          label.btn.btn-white.ml-2
+            input#option5(type="radio" name="options" autocomplete="off")
+            | combo
+        h4.intro.mb-1 sidebar color
+        p.text.mb-3 Usually dictated by the color scheme, but can be overriden.
+        .btn-group-toggle.d-flex.mb-4(data-toggle="buttons")
+          label.w-50.btn.btn-white.active
+            input#option6(type="radio" name="options" autocomplete="off" checked)
+            | default
+          label.w-50.btn.btn-white.ml-2
+            input#option7(type="radio" name="options" autocomplete="off") 
+            | vibrant
+      .modal-footer.border-0
+        button.btn.btn-block.btn-primary.mt-auto(type="submit")
+          | Preview

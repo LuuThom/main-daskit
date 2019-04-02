@@ -1,0 +1,86 @@
+#sidebarModal {
+  .modal-dialog {
+    margin-left: 0;
+    max-width: 350px;
+    overflow: hidden;
+    margin-top: -1px;
+    .modal-header {
+      padding: 24px; 
+      .modal-title {
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: $font-weight-large;
+        height: 22px;
+        line-height: 22.5px;
+        letter-spacing: -0.3px;
+      }
+      .close {
+        color: $color-title;
+        font-size: 15px;
+        font-weight: $font-weight-big;
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+    .modal-body {
+      margin-top: 72px;
+      padding-top: 0;
+      padding-bottom: 0;
+      &::-webkit-scrollbar-track
+        {
+          -webkit-box-shadow: inset 0 0 5px $bg-white;
+          border-radius: 10px;
+          background-color: $bg-white;
+        }
+
+      &::-webkit-scrollbar
+        {
+          width: 8px;
+          background-color: $bg-scrol;
+        }
+
+      &::-webkit-scrollbar-thumb
+        {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px $bg-scrol;
+          background-color: $bg-scrol;
+        }
+      .list-unstyled {
+        .media {
+          color: $color-main;
+          cursor: pointer;
+          font-family: inherit;
+          font-size: 13px;
+          line-height: 19.5px;
+          box-sizing: border-box;
+          padding-top: 14px;
+          border-bottom: 1px solid $bd-bottom-header;
+          &:last-child {
+            border: none;
+            padding-bottom: 45px;
+            margin-bottom: 37px;
+          }
+        }
+        .avatar {
+          width: 40px;
+          height: 40px;
+        }
+        .text-body {
+          font-weight: $font-weight-medium;
+          padding-left: 0px;
+          padding-right: 37px;
+          color: $color-main;
+          margin-bottom: 10px;
+          .name {
+            font-weight: $font-weight-big;
+            color: $color-title;
+          }
+          .comment {
+            color: $color-title;
+          }
+        }
+      }
+    }
+  }
+}

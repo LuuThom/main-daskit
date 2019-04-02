@@ -1,0 +1,21 @@
+@font-face {
+  font-family: Cerebri Sans;
+  src: url(../../assets/fonts/cerebrisans-regular.eot);
+  src: url(../../assets/fonts/cerebrisans-regular.eot?#iefix) format("embedded-opentype"), url(../../assets/fonts/cerebrisans-regular.woff) format("woff"), url(../../assets/fonts/cerebrisans-regular.ttf) format("truetype");
+  font-weight: $font-weight-medium;
+  font-style: normal
+}
+@font-face {
+  font-family: Cerebri Sans;
+  src: url(../../assets/fonts/cerebrisans-medium.eot);
+  src: url(../../assets/fonts/cerebrisans-medium.eot?#iefix) format("embedded-opentype"), url(../../assets/fonts/cerebrisans-medium.woff) format("woff"), url(../../assets/fonts/cerebrisans-medium.ttf) format("truetype");
+  font-weight: $font-weight-large;
+  font-style: normal
+}
+@font-face {
+  font-family: Cerebri Sans;
+  src: url(../../assets/fonts/cerebrisans-semibold.eot);
+  src: url(../../assets/fonts/cerebrisans-semibold.eot?#iefix) format("embedded-opentype"), url(../../assets/fonts/cerebrisans-semibold.woff) format("woff"), url(../../assets/fonts/cerebrisans-semibold.ttf) format("truetype");
+  font-weight: $font-weight-big;
+  font-style: normal
+}

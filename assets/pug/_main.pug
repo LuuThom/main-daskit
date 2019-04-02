@@ -1,0 +1,336 @@
+-
+  var card = [
+    {
+      title : "budget",
+      count : "$24,500",
+      badge : "+3.5%",
+      icon : "fe fe-dollar-sign"
+    },
+    {
+      title : "total hours",
+      count : "763.5",
+      icon : "fe fe-briefcase"
+    },
+    {
+      title : "progress",
+      count : "84,5%",
+      icon : "fe fe-clipboard",
+      progress : "85%"
+    },
+    {
+      title : "effective hourly",
+      count : "$85,50",
+      icon : "fe fe-clock"
+    }
+  ];
+mixin card()
+  each val in card
+    .col-md-3
+      .card
+        .card-body
+          .intro
+            h6.card-title= val.title
+            
+            if (val.progress)
+              .row
+                .col-auto.pr-1
+                  span.count= val.count
+                .col.pl-0
+                  .progress.progress-sm
+                    .progress-bar(
+                    role="progressbar"
+                    style=`width: ${val.progress}`
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    )
+            else
+              span.count= val.count
+            if (val.badge)
+              span.badge= val.badge
+          .icon
+            i(class= val.icon)
+-
+  var dataTable =[
+    {
+      goal : "Update the API",
+      active :"status--online",
+      status :"In progress",
+      progress : "55%",
+      date : "07/24/18",
+      team : [
+        { 
+          tooltip : "Dianna Smiley",
+          img1 : "assets/img/avatar-1.jpg" 
+        },
+        { 
+          tooltip : "Dianna Smiley",
+          img2 : "assets/img/avatar-2.jpg" 
+        },
+        { 
+          tooltip : "Dianna Smiley",
+          img3 : "assets/img/avatar-3.jpg"
+        },
+      ]
+    },
+    {
+      goal: "Release v1.2-Beta",
+      active : "status--danger",
+      status :"In progress",
+      progress : "25%",
+      date : "08/26/18",
+      team : [
+        { img1 : "assets/img/avatar-1.jpg" },
+        { img2 : "assets/img/avatar-2.jpg" },
+        { img3 : "assets/img/avatar-3.jpg" },
+      ]
+    },
+    {
+      goal: "GDPR Compliance",
+      active : "status--warning",
+      status :"Completed",
+      progress : "100%",
+      date : "06/19/18",
+      team : [
+        { img1 : "assets/img/avatar-1.jpg" },
+        { img2 : "assets/img/avatar-2.jpg" },
+        { img3 : "assets/img/avatar-3.jpg" },
+      ]
+    },
+    {
+      goal: "v1.2 Documentation",
+      active : "status--danger",
+      status :"Cancelled",
+      progress : "0%",
+      date : "06/25/18",
+      team : [
+        { img1 : "assets/img/avatar-1.jpg" },
+        { img2 : "assets/img/avatar-2.jpg" },
+      ]
+    },
+    {
+      goal: "Plan design offsite",
+      active : "status--warning",
+      status :"Completed",
+      progress : "100%",
+      date : "06/03/18",
+      team : [
+        { img1 : "assets/img/avatar-1.jpg" },
+        { img2 : "assets/img/avatar-2.jpg" },
+        { img1 : "assets/img/avatar-1.jpg" },
+        { img2 : "assets/img/avatar-2.jpg" },
+      ]
+    }
+  ]
+mixin dropdown()
+  .dropdown
+    a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+      i.fe.fe-more-vertical
+    .dropdown-menu.dropdown-menu-right
+      a(href="#!").dropdown-item Action
+      a(href="#!").dropdown-item Another action
+      a(href="#!").dropdown-item Somthing else here
+
+mixin table()
+  table#example.table.mb-0.display.nowrap.dataTable
+    thead   
+      tr
+        th.sorting
+          a.sort(data-sort="goal-project") goal1
+        th.sorting
+          a.sort(data-sort="goal-status") status1
+        th.sorting
+          a.sort(data-sort="goal-progress") progress1
+        th.sorting
+          a.sort(data-sort="goal-date") date1
+        th.sorting
+          a.sort(data-sort="text-right") team1
+        th.sorting
+    tbody
+       each val in dataTable
+         tr
+          td.goal-project= val.goal
+          td.goal-status
+            span.status(class= val.active)
+            |#{val.status}
+          td.goal-progress= val.progress
+          td.goal-date= val.date
+          if val.team
+            td.text-right
+              each val1 in val.team
+                img(src= val1.img)
+          td.text-right
+            .dropdown
+              a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                i.fe.fe-more-vertical
+              .dropdown-menu.dropdown-menu-right
+                a(href="#!").dropdown-item Action
+                a(href="#!").dropdown-item Another action
+                a(href="#!").dropdown-item Somthing else here
+            
+.main-body
+  .container-fluid
+    .header
+      .title-page
+        h6.header-pretitle overview
+        h1.header-title dashboard
+      .btn-create
+        a.btn.btn-primary.btn--custom(href="#!") Create Report
+    .body.row
+      +card()
+      .col-12.col-xl-8
+        .card
+          .card-header
+            .row.align-items-center
+              .col
+                h4.card-header-title Orders
+              .col-auto.mr-5
+                span.text Show affiliate: 
+              .col-auto
+                .checkbox.switcher
+                  input#cardToggle.custom-control-input(type="checkbox" value="")
+                  label.custom-control-label.checkbox(for="cardToggle")
+          .card-body
+            .chart
+              canvas#ordersChart.chart-canvas
+      .col-12.col-xl-4
+        .card.devices
+          .card-header
+            .row
+              .col
+                h4.card-header-title Devices
+              .col-auto
+                ul.nav.nav-tabs.nav-tabs-sm.card-header-tabs
+                  li.nav-item(data-toggle="chart" data-target="#devicesChart")
+                    a.nav-link.active(href="#" data-toggle="tab") All
+                  li.nav-item(data-toggle="chart" data-target="#devicesChart")
+                    a.nav-link.active(href="#" data-toggle="tab") Direct
+          .card-body
+            .chart.chart-appended
+              canvas.chart-canvas.chartjs-render-monitor#devicesChart(data-target="#devicesChartLegend")
+            #devicesChartLegend.chart-legend
+              span.chart-legend-item
+                i.chart-legend-indicator
+                | Desktop
+              span.chart-legend-item
+                i.chart-legend-indicator
+                | Tablet
+              span.chart-legend-item
+                i.chart-legend-indicator
+                | Mobile
+      .col-12.col-xl-4
+          .card.project
+            .card-header
+              .row.align-items-center
+                .col
+                  h4.card-header-title.mb-0 Project
+                .col-auto
+                  a.small(href="#") View all
+            .card-body
+              .row.align-item-center
+                .col-auto
+                  a.avatar.avatar-4by3(href="#")
+                    img.avatar-img.rounded(src="assets/img/project-1.jpg", alt="")
+                .col.ml-n2
+                  h4.card-title.mb-1
+                    a(href="#") Homepage Redesign
+                  p.card-text
+                    span.date-time Updated 5hr ago
+                .col-auto
+                  .dropdown
+                    a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                      i.fe.fe-more-vertical
+                    .dropdown-menu.dropdown-menu-right
+                      a(href="#!").dropdown-item Action
+                      a(href="#!").dropdown-item Another action
+                      a(href="#!").dropdown-item Somthing else here
+              hr
+              .row.align-item-center
+                .col-auto
+                  a.avatar.avatar-4by3(href="#")
+                    img.avatar-img.rounded(src="assets/img/project-2.jpg", alt="")
+                .col.ml-n2
+                  h4.card-title.mb-1
+                    a(href="#") Travels & Time
+                  p.card-text
+                    span.date-time Updated 3hr ago
+                .col-auto
+                  .dropdown
+                    a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                      i.fe.fe-more-vertical
+                    .dropdown-menu.dropdown-menu-right
+                      a(href="#!").dropdown-item Action
+                      a(href="#!").dropdown-item Another action
+                      a(href="#!").dropdown-item Somthing else here
+              hr
+              .row.align-item-center
+                .col-auto
+                  a.avatar.avatar-4by3(href="#")
+                    img.avatar-img.rounded(src="assets/img/project-3.jpg", alt="")
+                .col.ml-n2
+                  h4.card-title.mb-1
+                    a(href="#") Safari Exploration
+                  p.card-text
+                    span.date-time Updated 10hr ago
+                .col-auto
+                  .dropdown
+                    a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                      i.fe.fe-more-vertical
+                    .dropdown-menu.dropdown-menu-right
+                      a(href="#!").dropdown-item Action
+                      a(href="#!").dropdown-item Another action
+                      a(href="#!").dropdown-item Somthing else here
+              hr
+              .row.align-item-center
+                .col-auto
+                  a.avatar.avatar-4by3(href="#")
+                    img.avatar-img.rounded(src="assets/img/project-1.jpg", alt="")
+                .col.ml-n2
+                  h4.card-title.mb-1
+                    a(href="#") Personal Site
+                  p.card-text
+                    span.date-time Updated 4hr ago
+                .col-auto
+                  .dropdown
+                    a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                      i.fe.fe-more-vertical
+                    .dropdown-menu.dropdown-menu-right
+                      a(href="#!").dropdown-item Action
+                      a(href="#!").dropdown-item Another action
+                      a(href="#!").dropdown-item Somthing else here
+      .col-12.col-xl-8
+        .card
+          .card-header
+            .row.align-items-center
+              .col
+                h4.card-header-title Performance
+              .col-auto
+                a.btn.btn-sm.btn-white Export
+          .card-body
+            .chart
+              canvas#performance.chart-canvas
+      .col-12.col-xl-7
+        .card
+          .card-header
+            .row.align-items-center
+              .col
+                h4.card-header-title.mb-0 Goals
+              .col-auto
+                a.btn.btn-sm.btn-white Export
+          .table-responsive
+            +table()
+      .col-12.col-xl-5
+        .card.version
+          .card-body.text-center
+            .row.justify-content-center
+              .col-12.col-xl-10
+                img.img-fluid.mt-n6.mb-4(src="assets/img/happiness.svg", alt="")
+                h4.title.mb-2 We released 2008 new versions of our theme for glory.
+                p.text This is a true story and totally not made up. This is going to be better in the long run but for now this is the way it is.
+                a.btn.btn-primary(href="#!") Try it for free
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+.modalSearch {
+  .modal-dialog{
+    margin-top: -1px;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 350px;
+    .modal-body {
+      width: 100%;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+    
+    .form-control {
+      padding-left: 6px;
+      border-left: none;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      outline: none;
+      &.search:focus {
+        outline: none;
+        border-left: 0;
+        box-shadow: none;
+        & .input-group-text {
+          border-color: $bg-scrol;
+          border-right: 0;  
+        }
+      }
+    }
+    input::placeholder {
+      color: $color-main;
+      font-size: $font-size-1;
+    }
+    .input-group-prepend {
+      order: -1;
+      outline: none;
+      .input-group-text {
+        background: none;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-color: $bg-input;
+        border-right: none;
+        cursor: pointer;
+      }
+    }
+    .media {
+      border-bottom: 1px solid $color-media;
+      a {
+        display: flex;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        .avatar-img {
+          width: 48px;
+          height: 48px;
+        }
+        .avatar-img-pro {
+          width: 64px;
+        }
+        .media-body {
+          margin-left: 16px;
+          .name {
+            color: $color-title;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: $font-weight-large;
+            font-size: $font-size-1;
+            letter-spacing: -0.3px;
+            line-height: 16.5px
+          }
+          .text {
+            color: $color-main;
+            font-size: $font-size-2;
+            font-weight: $font-weight-medium;
+            height: 20px;
+            cursor: pointer;
+          }
+          .action {
+            position: relative;
+            .status {
+              left: -15px;
+              top: 6px;
+              width: 9px;
+              height: 9px;
+              &--offline {
+                background: $bg-color-offline;
+              }
+            }
+          }
+        }
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      .action {
+        color: $color-title;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+  
