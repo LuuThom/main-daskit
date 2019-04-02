@@ -307,4 +307,45 @@ table {
     }
   }
 }
+/*.nav-tab*/
+.nav-tabs {
+  .nav-link {
+    &.active {
+      color: #12263f;
+      background-color: transparent;
+      border-color: transparent transparent #2c7be5;
+    }
+  }
+}
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  font-size: .8125rem;
+  text-align: center;
+  color: #95aac9;
+  &-item {
+    display: inline-flex;
+    align-items: center;
+  }
+  &-item+&-item {
+    margin-left: 1rem;
+  }
+  &-indicator {
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    margin-right: .375rem;
+    border-radius: 50%;
+  }
+  &--des {
+    background-color: #2C7BE5;
+  }
+  &--tab {
+    background-color: #A6C5F7;
+  }
+  &--mob {
+    background-color: #D2DDEC;
+  }
+}
 

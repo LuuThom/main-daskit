@@ -200,23 +200,30 @@ mixin table()
               .col
                 h4.card-header-title Devices
               .col-auto
-                ul.nav.nav-tabs.nav-tabs-sm.card-header-tabs
-                  li.nav-item(data-toggle="chart" data-target="#devicesChart")
-                    a.nav-link.active(href="#" data-toggle="tab") All
-                  li.nav-item(data-toggle="chart" data-target="#devicesChart")
-                    a.nav-link.active(href="#" data-toggle="tab") Direct
+                ul.nav.nav-tabs.nav-tabs-sm.card-header-tabs(role="tablist")
+                  li.nav-item
+                    a.nav-link.active(href="#devices1" data-toggle="tab" role="tab") All
+                  li.nav-item
+                    a.nav-link(href="#devices2" data-toggle="tab" role="tab") Direct
           .card-body
-            .chart.chart-appended
-              canvas.chart-canvas.chartjs-render-monitor#devicesChart(data-target="#devicesChartLegend")
+            .tab-content
+              .tab-pane.active#devices1(role="tabpanel")
+                .chart.chart-appended
+                  canvas.chart-canvas.chartjs-render-monitor#devicesChart1(data-target="#devicesChartLegend" data-chart="doughnut"
+        data-dataset="[60,25,15]")
+              .tab-pane#devices2(role="tabpanel")
+                .chart.chart-appended
+                  canvas.chart-canvas.chartjs-render-monitor#devicesChart2(data-target="#devicesChartLegend" data-chart="doughnut"
+        data-dataset="[15,25,40]")
             #devicesChartLegend.chart-legend
               span.chart-legend-item
-                i.chart-legend-indicator
+                i.chart-legend-indicator.chart-legend--des
                 | Desktop
               span.chart-legend-item
-                i.chart-legend-indicator
+                i.chart-legend-indicator.chart-legend--tab
                 | Tablet
               span.chart-legend-item
-                i.chart-legend-indicator
+                i.chart-legend-indicator.chart-legend--mob
                 | Mobile
       .col-12.col-xl-4
           .card.project
