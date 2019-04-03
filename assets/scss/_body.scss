@@ -242,11 +242,15 @@ thead {
   text-transform: uppercase;
   color: $color-main !important;
   }
+  th {
+    border: 0;
+  }
 }
 tbody {
   tr {
     background: $bg-white;
     td {
+      border: 0;
       font-size: $font-size-2;
       font-weight: $font-weight-medium;
       height: 58px;
@@ -260,10 +264,32 @@ tbody {
           left: 0;
         }
       }
+      img {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        outline: 0;
+        cursor: pointer;
+        border: 2px solid $color-white;
+        margin-left: -4px;
+        &:hover {
+          position: relative;
+          z-index: 2;
+        }
+      }
     }
+  }
+  tr.old{
+    background: $bg-white;
   }
 }
 table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.hover tbody tr:hover>.sorting_1 {
+  background: $bg-white;
+}
+table.dataTable.display tbody tr.odd>.sorting_1, table.dataTable.order-column.stripe tbody tr.odd>.sorting_1 {
+  background-color: $bg-white;
+}
+table.dataTable.row-border tbody th:hover, table.dataTable.row-border tbody td:hover, table.dataTable.display tbody th:hover, table.dataTable.display tbody td:hover {
   background: $bg-white;
 }
 table {
@@ -311,19 +337,18 @@ table {
 .nav-tabs {
   .nav-link {
     &.active {
-      color: #12263f;
+      color: $color-title;
       background-color: transparent;
-      border-color: transparent transparent #2c7be5;
+      border-color: transparent transparent $color-active;
     }
   }
 }
 .chart-legend {
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
-  font-size: .8125rem;
+  font-size: $font-size-2;
   text-align: center;
-  color: #95aac9;
+  color: $color-main ;
   &-item {
     display: inline-flex;
     align-items: center;
@@ -339,13 +364,13 @@ table {
     border-radius: 50%;
   }
   &--des {
-    background-color: #2C7BE5;
+    background-color: $color-active;
   }
   &--tab {
-    background-color: #A6C5F7;
+    background-color: $color-tab;
   }
   &--mob {
-    background-color: #D2DDEC;
+    background-color: $color-mob;
   }
 }
 

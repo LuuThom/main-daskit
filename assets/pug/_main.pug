@@ -61,15 +61,15 @@ mixin card()
       team : [
         { 
           tooltip : "Dianna Smiley",
-          img1 : "assets/img/avatar-1.jpg" 
+          img : "assets/img/avatar-1.jpg" 
         },
         { 
           tooltip : "Dianna Smiley",
-          img2 : "assets/img/avatar-2.jpg" 
+          img : "assets/img/avatar-2.jpg" 
         },
         { 
           tooltip : "Dianna Smiley",
-          img3 : "assets/img/avatar-3.jpg"
+          img : "assets/img/avatar-3.jpg"
         },
       ]
     },
@@ -80,9 +80,18 @@ mixin card()
       progress : "25%",
       date : "08/26/18",
       team : [
-        { img1 : "assets/img/avatar-1.jpg" },
-        { img2 : "assets/img/avatar-2.jpg" },
-        { img3 : "assets/img/avatar-3.jpg" },
+        { 
+          tooltip : "Ab Halay",
+          img : "assets/img/avatar-1.jpg"
+        },
+        { 
+          tooltip : "Dianna Smiley",
+          img : "assets/img/avatar-2.jpg"
+        },
+        { 
+          tooltip : "Adofo Hess",
+          img : "assets/img/avatar-3.jpg" 
+        },
       ]
     },
     {
@@ -92,9 +101,18 @@ mixin card()
       progress : "100%",
       date : "06/19/18",
       team : [
-        { img1 : "assets/img/avatar-1.jpg" },
-        { img2 : "assets/img/avatar-2.jpg" },
-        { img3 : "assets/img/avatar-3.jpg" },
+        { 
+          tooltip : "Ab Halay",
+          img : "assets/img/avatar-1.jpg" 
+        },
+        { 
+          tooltip : "Dianna Smiley",
+          img : "assets/img/avatar-2.jpg" 
+        },
+        { 
+          tooltip : "Adofo Hess",
+          img : "assets/img/avatar-3.jpg" 
+        },
       ]
     },
     {
@@ -104,8 +122,13 @@ mixin card()
       progress : "0%",
       date : "06/25/18",
       team : [
-        { img1 : "assets/img/avatar-1.jpg" },
-        { img2 : "assets/img/avatar-2.jpg" },
+        { 
+          tooltip : "Adofo Hess",
+          img : "assets/img/avatar-1.jpg" 
+        },
+        { tooltip : "Adofo Hess",
+          img : "assets/img/avatar-2.jpg"
+        },
       ]
     },
     {
@@ -115,10 +138,20 @@ mixin card()
       progress : "100%",
       date : "06/03/18",
       team : [
-        { img1 : "assets/img/avatar-1.jpg" },
-        { img2 : "assets/img/avatar-2.jpg" },
-        { img1 : "assets/img/avatar-1.jpg" },
-        { img2 : "assets/img/avatar-2.jpg" },
+        { 
+          tooltip : "Adofo Hess",
+          img : "assets/img/avatar-1.jpg" 
+        },
+        { tooltip : "Adofo Hess",
+          img : "assets/img/avatar-2.jpg"
+        },
+        { 
+          tooltip : "Adofo Hess",
+          img : "assets/img/avatar-3.jpg" 
+        },
+        { tooltip : "Adofo Hess",
+          img : "assets/img/avatar-2.jpg"
+        },
       ]
     }
   ]
@@ -158,7 +191,7 @@ mixin table()
           if val.team
             td.text-right
               each val1 in val.team
-                img(src= val1.img)
+                img(src= val1.img, data-toggle="tooltip" data-placement="top" title= val1.tooltip)
           td.text-right
             .dropdown
               a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
@@ -202,19 +235,12 @@ mixin table()
               .col-auto
                 ul.nav.nav-tabs.nav-tabs-sm.card-header-tabs(role="tablist")
                   li.nav-item
-                    a.nav-link.active(href="#devices1" data-toggle="tab" role="tab") All
+                    a.nav-link.active#devicesAll(href="#devices1" data-toggle="tab" role="tab") All
                   li.nav-item
-                    a.nav-link(href="#devices2" data-toggle="tab" role="tab") Direct
+                    a.nav-link#devicesDirect(href="#devices2" data-toggle="tab" role="tab") Direct
           .card-body
-            .tab-content
-              .tab-pane.active#devices1(role="tabpanel")
-                .chart.chart-appended
-                  canvas.chart-canvas.chartjs-render-monitor#devicesChart1(data-target="#devicesChartLegend" data-chart="doughnut"
-        data-dataset="[60,25,15]")
-              .tab-pane#devices2(role="tabpanel")
-                .chart.chart-appended
-                  canvas.chart-canvas.chartjs-render-monitor#devicesChart2(data-target="#devicesChartLegend" data-chart="doughnut"
-        data-dataset="[15,25,40]")
+            .chart
+              canvas#deviceChart.chart-canvas
             #devicesChartLegend.chart-legend
               span.chart-legend-item
                 i.chart-legend-indicator.chart-legend--des
@@ -312,7 +338,13 @@ mixin table()
               .col
                 h4.card-header-title Performance
               .col-auto
-                a.btn.btn-sm.btn-white Export
+                ul.nav.nav-tabs.nav-tabs-sm.card-header-tabs(role="tablist")
+                  li.nav-item
+                    a.nav-link.active#performanceAll(href="#devices1" data-toggle="tab" role="tab") All
+                  li.nav-item
+                    a.nav-link#performanceDirect(href="#devices2" data-toggle="tab" role="tab") Direct
+                  li.nav-item
+                    a.nav-link#performanceOrganic(href="#devices2" data-toggle="tab" role="tab") Organic
           .card-body
             .chart
               canvas#performance.chart-canvas

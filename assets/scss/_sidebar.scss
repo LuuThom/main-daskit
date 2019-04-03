@@ -248,7 +248,7 @@ a.nav-link {
   }
 }
 .navbar .container-fluid button.navbar-toggle {
-  display: block;
+  display: none;
   color: #6e84a3;
   border-color: transparent;
   padding: .25rem 0;
@@ -262,23 +262,50 @@ a.nav-link {
     width: 1.5em;
     height: 1.5em;
     vertical-align: middle;
-    content: "=";
     background: no-repeat 50%;
     background-size: 100% 100%;
-    background-color: aqua;
-    // /background-image: url(data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000…p='round'' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
   }
 }
-@media (min-width: 768px) {
-  .navbar-expand-md .navbar-toggler {
-    display: none;
+@media (max-width:768px) {
+  .navbar .container-fluid button.navbar-toggle {
+    display: block;
+    outline: 0;
+    .navbar-toggle-icon {
+      font-size: 20px;
+      font-weight: 300;
+    }
   }
-  max-width: 100%;
-  top: 0;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-}
-.navbar-expand-md .navbar-toggler {
-  display: block;
+  .navbar {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    .container-fluid {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      height: 100%;
+    }
+    &-collapse {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    &-heading {
+      width: 100%;
+    }
+  }
+  .navbar-expand-md .navbar-nav {
+    margin: 0;
+  }
+  .navbar-user {
+    width: auto;
+    &:before {
+      display: none;
+    }
+  }
+  .navbar-brand-img {
+    height: 26px;
+  }
+  .main-body {
+    margin: 0;
+  }
 }
