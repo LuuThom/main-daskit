@@ -249,18 +249,18 @@ a.nav-link {
 }
 .navbar .container-fluid button.navbar-toggle {
   display: none;
-  color: #6e84a3;
+  color: $color-nav;
   border-color: transparent;
-  padding: .25rem 0;
-  font-size: 1.0625rem;
+  padding: 4px 0;
+  font-size: $font-size-4;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: .375rem;
+  border-radius: 6px;;
   .navbar-toggle-icon {
     display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
     background: no-repeat 50%;
     background-size: 100% 100%;
@@ -272,7 +272,7 @@ a.nav-link {
     outline: 0;
     .navbar-toggle-icon {
       font-size: 20px;
-      font-weight: 300;
+      font-weight: $font-weight-small;
     }
   }
   .navbar {
