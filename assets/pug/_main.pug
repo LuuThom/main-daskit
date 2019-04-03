@@ -339,12 +339,12 @@ mixin table()
                 h4.card-header-title Performance
               .col-auto
                 ul.nav.nav-tabs.nav-tabs-sm.card-header-tabs(role="tablist")
-                  li.nav-item
-                    a.nav-link.active#performanceAll(href="#devices1" data-toggle="tab" role="tab") All
-                  li.nav-item
-                    a.nav-link#performanceDirect(href="#devices2" data-toggle="tab" role="tab") Direct
-                  li.nav-item
-                    a.nav-link#performanceOrganic(href="#devices2" data-toggle="tab" role="tab") Organic
+                  li.nav-item.js-nav-cards-item.active#performanceAll
+                    a.nav-link(href="#devices1" data-toggle="tab" role="tab") All
+                  li.nav-item#performanceDirect.js-nav-cards-item
+                    a.nav-link(href="#devices2" data-toggle="tab" role="tab") Direct
+                  li.nav-item#performanceOrganic.js-nav-cards-item
+                    a.nav-link(href="#devices2" data-toggle="tab" role="tab") Organic
           .card-body
             .chart
               canvas#performance.chart-canvas
