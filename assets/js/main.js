@@ -1,8 +1,8 @@
 $(document).ready(function () {
   var chartLine;
   var chartDou;
-  $('#example').DataTable();
-  
+  $('#dtBasicExample').DataTable();
+  $('.dataTables_length').addClass('bs-select');
   function drawDevice(_data) {
     chartDou = new Chart(document.getElementById('deviceChart'), {
       type: 'doughnut',

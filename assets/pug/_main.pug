@@ -165,19 +165,19 @@ mixin dropdown()
       a(href="#!").dropdown-item Somthing else here
 
 mixin table()
-  table#example.table.mb-0.display.nowrap.dataTable
+  table#dtBasicExample.table.mb-0.display.nowrap.dataTable
     thead   
       tr
-        th.sorting
-          a.sort(data-sort="goal-project") goal1
-        th.sorting
-          a.sort(data-sort="goal-status") status1
-        th.sorting
-          a.sort(data-sort="goal-progress") progress1
-        th.sorting
-          a.sort(data-sort="goal-date") date1
-        th.sorting
-          a.sort(data-sort="text-right") team1
+        th.sorting.icon-direct
+          a.sort(data-sort="goal-project") goal
+        th.sorting.icon-direct
+          a.sort(data-sort="goal-status") status
+        th.sorting.icon-direct
+          a.sort(data-sort="goal-progress") progress
+        th.sorting.icon-direct
+          a.sort(data-sort="goal-date") date
+        th.sorting.icon-direct
+          a.sort(data-sort="text-right") team
         th.sorting
     tbody
        each val in dataTable
@@ -190,8 +190,10 @@ mixin table()
           td.goal-date= val.date
           if val.team
             td.text-right
-              each val1 in val.team
-                img(src= val1.img, data-toggle="tooltip" data-placement="top" title= val1.tooltip)
+              .avatar-group.justify-content-end
+                each val1 in val.team
+                  a(href="#!")
+                    img(src= val1.img, data-toggle="tooltip" data-placement="top" title= val1.tooltip)
           td.text-right
             .dropdown
               a.dropdown-ellipses.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
@@ -220,9 +222,9 @@ mixin table()
               .col-auto.mr-5
                 span.text Show affiliate: 
               .col-auto
-                .checkbox.switcher
-                  input#cardToggle.custom-control-input(type="checkbox" value="")
-                  label.custom-control-label.checkbox(for="cardToggle")
+                label.switch
+                  input#cardToggle(type="checkbox" class="primary")
+                  span.slider
           .card-body
             .chart
               canvas#ordersChart.chart-canvas
@@ -234,10 +236,10 @@ mixin table()
                 h4.card-header-title Devices
               .col-auto
                 ul.nav.nav-tabs.nav-tabs-sm.card-header-tabs(role="tablist")
-                  li.nav-item
-                    a.nav-link.active#devicesAll(href="#devices1" data-toggle="tab" role="tab") All
-                  li.nav-item
-                    a.nav-link#devicesDirect(href="#devices2" data-toggle="tab" role="tab") Direct
+                  li.nav-item.js-nav-cards__devices.active#devicesChart
+                    a.nav-link.active(href="#devices1" data-toggle="tab" role="tab") All
+                  li.nav-item.js-nav-cards__devices#devicesDirect
+                    a.nav-link(href="#devices2" data-toggle="tab" role="tab") Direct
           .card-body
             .chart
               canvas#deviceChart.chart-canvas

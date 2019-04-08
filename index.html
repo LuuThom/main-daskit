@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="assets/vendor/Chart.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendor/jquery.dataTables.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.min.css">
   </head>
@@ -163,7 +162,7 @@
           </div>
           <div class="collapse navbar-collapse" id="sidebarCollapse">
                   <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link nav-link-sub" href="#dashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="dashboards"><i class="fe fe-home"></i>dashboard</a>
+                    <li class="nav-item"><a class="nav-link collapsed nav-link-sub" href="#" data-toggle="collapse" role="button" data-target="#dashboards" aria-expanded="true" aria-controls="dashboards"><i class="fe fe-home"></i>dashboard</a>
                       <div class="collapse show" id="dashboards">
                         <ul class="nav nav-sm flex-column">
                           <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="false">default</a>
@@ -173,7 +172,7 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link nav-link-sub" href="#pages" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="pages"><i class="fe fe-file"></i>pages</a>
+                    <li class="nav-item"><a class="nav-link collapsed nav-link-sub" href="#" data-toggle="collapse" role="button" data-target="#pages" aria-expanded="false" aria-controls="pages"><i class="fe fe-file"></i>pages</a>
                       <div class="collapse" id="pages">
                         <ul class="nav nav-sm flex-column">
                           <li class="nav-item"><a class="nav-link nav-link-sub" href="#sidebarProfile" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProfile">profile</a>
@@ -220,7 +219,7 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link nav-link-sub" href="#authentication" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication"><i class="fe fe-user"></i>authentication</a>
+                    <li class="nav-item"><a class="nav-link collapsed nav-link-sub" href="#" data-toggle="collapse" role="button" data-target="#authentication" aria-expanded="false" aria-controls="authentication"><i class="fe fe-user"></i>authentication</a>
                       <div class="collapse" id="authentication">
                         <ul class="nav nav-sm flex-column">
                           <li class="nav-item"><a class="nav-link" href="#undefined" data-toggle="collapse" role="button" aria-expanded="false">sign in</a>
@@ -356,10 +355,9 @@
                     </div>
                     <div class="col-auto mr-5"><span class="text">Show affiliate: </span></div>
                     <div class="col-auto">
-                      <div class="checkbox switcher">
-                        <input class="custom-control-input" id="cardToggle" type="checkbox" value="">
-                        <label class="custom-control-label checkbox" for="cardToggle"></label>
-                      </div>
+                      <label class="switch">
+                        <input class="primary" id="cardToggle" type="checkbox"><span class="slider"></span>
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -379,8 +377,8 @@
                     </div>
                     <div class="col-auto">
                       <ul class="nav nav-tabs nav-tabs-sm card-header-tabs" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" id="devicesAll" href="#devices1" data-toggle="tab" role="tab">All</a></li>
-                        <li class="nav-item"><a class="nav-link" id="devicesDirect" href="#devices2" data-toggle="tab" role="tab">Direct</a></li>
+                        <li class="nav-item js-nav-cards__devices active" id="devicesChart"><a class="nav-link active" href="#devices1" data-toggle="tab" role="tab">All</a></li>
+                        <li class="nav-item js-nav-cards__devices" id="devicesDirect"><a class="nav-link" href="#devices2" data-toggle="tab" role="tab">Direct</a></li>
                       </ul>
                     </div>
                   </div>
@@ -492,14 +490,14 @@
                   </div>
                 </div>
                 <div class="table-responsive">
-                        <table class="table mb-0 display nowrap dataTable" id="example">
+                        <table class="table mb-0 display nowrap dataTable" id="dtBasicExample">
                           <thead>  
                             <tr>
-                              <th class="sorting"><a class="sort" data-sort="goal-project">goal1</a></th>
-                              <th class="sorting"><a class="sort" data-sort="goal-status">status1</a></th>
-                              <th class="sorting"><a class="sort" data-sort="goal-progress">progress1</a></th>
-                              <th class="sorting"><a class="sort" data-sort="goal-date">date1</a></th>
-                              <th class="sorting"><a class="sort" data-sort="text-right">team1</a></th>
+                              <th class="sorting icon-direct"><a class="sort" data-sort="goal-project">goal</a></th>
+                              <th class="sorting icon-direct"><a class="sort" data-sort="goal-status">status</a></th>
+                              <th class="sorting icon-direct"><a class="sort" data-sort="goal-progress">progress</a></th>
+                              <th class="sorting icon-direct"><a class="sort" data-sort="goal-date">date</a></th>
+                              <th class="sorting icon-direct"><a class="sort" data-sort="text-right">team</a></th>
                               <th class="sorting"></th>
                             </tr>
                           </thead>
@@ -509,7 +507,9 @@
                               <td class="goal-status"><span class="status status--online"></span>In progress</td>
                               <td class="goal-progress">55%</td>
                               <td class="goal-date">07/24/18</td>
-                              <td class="text-right"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley">
+                              <td class="text-right">
+                                <div class="avatar-group justify-content-end"><a href="#!"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"></a><a href="#!"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"></a><a href="#!"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"></a>
+                                </div>
                               </td>
                               <td class="text-right">
                                 <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
@@ -522,7 +522,9 @@
                               <td class="goal-status"><span class="status status--danger"></span>In progress</td>
                               <td class="goal-progress">25%</td>
                               <td class="goal-date">08/26/18</td>
-                              <td class="text-right"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Ab Halay"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess">
+                              <td class="text-right">
+                                <div class="avatar-group justify-content-end"><a href="#!"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Ab Halay"></a><a href="#!"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"></a><a href="#!"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a>
+                                </div>
                               </td>
                               <td class="text-right">
                                 <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
@@ -535,7 +537,9 @@
                               <td class="goal-status"><span class="status status--warning"></span>Completed</td>
                               <td class="goal-progress">100%</td>
                               <td class="goal-date">06/19/18</td>
-                              <td class="text-right"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Ab Halay"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess">
+                              <td class="text-right">
+                                <div class="avatar-group justify-content-end"><a href="#!"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Ab Halay"></a><a href="#!"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Dianna Smiley"></a><a href="#!"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a>
+                                </div>
                               </td>
                               <td class="text-right">
                                 <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
@@ -548,7 +552,9 @@
                               <td class="goal-status"><span class="status status--danger"></span>Cancelled</td>
                               <td class="goal-progress">0%</td>
                               <td class="goal-date">06/25/18</td>
-                              <td class="text-right"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess">
+                              <td class="text-right">
+                                <div class="avatar-group justify-content-end"><a href="#!"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a><a href="#!"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a>
+                                </div>
                               </td>
                               <td class="text-right">
                                 <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
@@ -561,7 +567,9 @@
                               <td class="goal-status"><span class="status status--warning"></span>Completed</td>
                               <td class="goal-progress">100%</td>
                               <td class="goal-date">06/03/18</td>
-                              <td class="text-right"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess">
+                              <td class="text-right">
+                                <div class="avatar-group justify-content-end"><a href="#!"><img src="assets/img/avatar-1.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a><a href="#!"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a><a href="#!"><img src="assets/img/avatar-3.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a><a href="#!"><img src="assets/img/avatar-2.jpg" data-toggle="tooltip" data-placement="top" title="Adofo Hess"></a>
+                                </div>
                               </td>
                               <td class="text-right">
                                 <div class="dropdown"><a class="dropdown-ellipses dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
@@ -591,7 +599,7 @@
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="assets/vendor/bootstrap.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      <script src="assets/vendor/datatables.min.js"></script>
       <script src="assets/vendor/Chart.min.js"></script>
       <script src="assets/vendor/Chart.extension.min.js"></script>
       <script src="assets/js/main.js"></script>

@@ -119,9 +119,10 @@ mixin navbar-nav()
   ul.navbar-nav
     each val in navbar
       li.nav-item
-        a.nav-link(class= val.sub ? "nav-link-sub": "", href= "#" + val.link,
+        a.nav-link.collapsed(class= val.sub ? "nav-link-sub": "", href= "#",
           data-toggle="collapse" 
           role="button" 
+          data-target= "#" + val.link
           aria-expanded= val.show ? "true" : "false" 
           aria-controls= val.link)
           i(class= val.icon)
@@ -137,7 +138,7 @@ mixin navbar-nav()
                   a.nav-link(class= val1.badge ? "nav-active": "", class= val1.child ? "nav-link-sub": "",href="#" + val1.link,
                     data-toggle="collapse" 
                     role="button" 
-                    aria-expanded="false" 
+                    aria-expanded="false"
                     aria-controls= val1.link)= val1.list
                     if val1.badge
                       span.badge= val1.badge
